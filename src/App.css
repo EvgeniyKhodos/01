@@ -21,10 +21,7 @@ background-color: aqua;
   width: 20px;
 }
 
-.nav {
-grid-area: n;
-background-color: blue;
-}
+
 
 .content {
 grid-area: c;
