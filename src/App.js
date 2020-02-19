@@ -17,9 +17,12 @@ const App = (props) => {
                 <Header/>
                 <Navbar/>
                 <div class='app-wrapper-content'>
-                    <Route path='/dialogs' render={ () => <Dialogs messages={props.messages} dialogs={props.dialogs}/>}/>
+                    <Route path='/dialogs'
+                           render={ () => <Dialogs state={props.state.dialogsPage}/>}/>
                     {/*вызов анонимной функции, чтобы передать props*/}
-                    <Route path='/profile' render={ () => <Profile posts={props.posts}/>}/>
+                    <Route path='/profile'
+                           render={ () => <Profile state={props.state.profilePage}/>}/>
+
                     <Route path='/music' component={Music}/>
                     <Route path='/news' component={News}/>
                     <Route path='/settings' component={Settings}/>
