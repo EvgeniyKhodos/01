@@ -10,14 +10,16 @@ import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 
 const App = (props) => {
+
     return (
         <BrowserRouter>
             <div className='app-wrapper'>
                 <Header/>
                 <Navbar/>
                 <div class='app-wrapper-content'>
-                    <Route path='/dialogs' component={Dialogs}/> {/*/dialogs/spam/blabla*/}
-                    <Route path='/profile' component={Profile}/>
+                    <Route path='/dialogs' render={ () => <Dialogs messages={props.messages} dialogs={props.dialogs}/>}/>
+                    {/*вызов анонимной функции, чтобы передать props*/}
+                    <Route path='/profile' render={ () => <Profile posts={props.posts}/>}/>
                     <Route path='/music' component={Music}/>
                     <Route path='/news' component={News}/>
                     <Route path='/settings' component={Settings}/>
