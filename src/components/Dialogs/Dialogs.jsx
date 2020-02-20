@@ -3,6 +3,7 @@ import s from './Dialogs.module.css';
 import {NavLink} from "react-router-dom";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
+import Image from "./Image/Image";
 
 const Dialogs = (props) => {
 
@@ -10,8 +11,13 @@ const Dialogs = (props) => {
 
     let messagesElements = props.state.messages.map(m => <Message message={m.message}/>);
 
+    let imagesElements = props.state.dialogs.map(i => <Image image={i.img}/>);
+
     return (
         <div className={s.dialogs}>
+            <div className={s.dialogsItems}>
+                { imagesElements }
+            </div>
             <div className={s.dialogsItems}>
                 { dialogsElemenst }
             </div>
