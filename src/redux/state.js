@@ -24,7 +24,12 @@ let state = {
             {id: 4, message: 'Four', likesCount: 11},
             {id: 5, message: 'Five', likesCount: 11}
         ]
-    }
+    },
+    sidebar: [
+        {id: 1, name: 'Dimych'},
+        {id: 2, name: 'Andrew'},
+        {id: 3, name: 'Sveta'}
+    ]
 };
 
 export default state;

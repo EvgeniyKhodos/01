@@ -6,7 +6,8 @@ import Profile from "../Profile";
 const MyPosts = (props) => {
   let postsElements =
       props.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>)
-
+       // map - это метод массива, для вызова каждого элемента массива, используется для создания новых массивов
+    // например, для JSX разметки
     return (
         <div className={s.postsBlock}>
             <h3>My posts</h3>

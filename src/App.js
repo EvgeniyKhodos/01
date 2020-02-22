@@ -10,9 +10,7 @@ import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 
 const App = (props) => {
-
     return (
-        <BrowserRouter>
             <div className='app-wrapper'>
                 <Header/>
                 <Navbar/>
@@ -22,13 +20,13 @@ const App = (props) => {
                     {/*вызов анонимной функции, чтобы передать props*/}
                     <Route path='/profile'
                            render={ () => <Profile state={props.state.profilePage}/>}/>
-
+                           {/* Route - смотрит какую отображать страницу, без перезагрузки, следит за адресной строкой браузера*/}
                     <Route path='/music' component={Music}/>
                     <Route path='/news' component={News}/>
                     <Route path='/settings' component={Settings}/>
                 </div>
             </div>
-        </BrowserRouter>)
+    )
 }
 
 export default App;

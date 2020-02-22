@@ -7,16 +7,16 @@ import Image from "./Image/Image";
 
 const Dialogs = (props) => {
 
-    let dialogsElemenst = props.state.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
+    let dialogsElemenst = props.state.dialogs.map(d => <DialogItem name={d.name} id={d.id} img ={d.img} />);
 
     let messagesElements = props.state.messages.map(m => <Message message={m.message}/>);
 
-    let imagesElements = props.state.dialogs.map(i => <Image image={i.img}/>);
+    // let imagesElements = props.state.dialogs.map(i => <Image image={i.img}/>);
 
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
-                { imagesElements }
+                {/*{ imagesElements }*/}
             </div>
             <div className={s.dialogsItems}>
                 { dialogsElemenst }
