@@ -32,4 +32,14 @@ let state = {
     ]
 };
 
+export let addPost = (PostMessage) => {
+    debugger;
+    let newPost = {
+        id: 5,
+        message: PostMessage,
+        likesCount: 0
+    }
+state.profilePage.posts.push(newPost);
+};
+
 export default state;

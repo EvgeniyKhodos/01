@@ -14,12 +14,12 @@ const App = (props) => {
             <div className='app-wrapper'>
                 <Header/>
                 <Navbar/>
-                <div class='app-wrapper-content'>
+                <div className='app-wrapper-content'>
                     <Route path='/dialogs'
                            render={ () => <Dialogs state={props.state.dialogsPage}/>}/>
                     {/*вызов анонимной функции, чтобы передать props*/}
                     <Route path='/profile'
-                           render={ () => <Profile state={props.state.profilePage}/>}/>
+                           render={ () => <Profile state={props.state.profilePage} addPost={props.addPost}/>}/>
                            {/* Route - смотрит какую отображать страницу, без перезагрузки, следит за адресной строкой браузера*/}
                     <Route path='/music' component={Music}/>
                     <Route path='/news' component={News}/>
