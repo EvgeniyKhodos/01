@@ -4,17 +4,21 @@ import Post from './Post/Post';
 import Profile from "../Profile";
 
 const MyPosts = (props) => {
-  let postsElements =
-      props.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>)
-       // map - это метод массива, для вызова каждого элемента массива, используется для создания новых массивов
+    let postsElements =
+        props.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>)
+    // map - это метод массива, для вызова каждого элемента массива, используется для создания новых массивов
     // например, для JSX разметки
 
     let newPostElement = React.createRef();
     // создаем ссылку
 
     let addPost = () => {
-      let text = newPostElement.current.value;
-      props.addPost( text )
+        props.addPost();
+    }
+
+    let onPostChange = () => {
+        let text = newPostElement.current.value;
+        props.updateNewPostText(text);
     }
 
     return (
@@ -22,11 +26,13 @@ const MyPosts = (props) => {
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea ref={ newPostElement }></textarea>
+                    <textarea ref={newPostElement}
+                              onChange={onPostChange}
+                              value={props.newPostText}/>
                     {/*Полю определяем, что он будет ссылать на наш ref*/}
                 </div>
                 <div>
-                    <button onClick={ addPost }>Add post</button>
+                    <button onClick={addPost}>Add post</button>
                 </div>
             </div>
             <div className={s.posts}>

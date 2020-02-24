@@ -20,8 +20,10 @@ const App = (props) => {
                     {/*вызов анонимной функции, чтобы передать props*/}
                     <Route path='/profile'
                            render={ () => <Profile
-                               state={props.state.profilePage}
-                               addPost={props.addPost} /> }/>
+                               profilePage={props.state.profilePage}
+                               addPost={props.addPost}
+                               updateNewPostText={props.updateNewPostText}
+                               /> }/>
                            {/* Route - смотрит какую отображать страницу, без перезагрузки, следит за адресной строкой браузера*/}
                     <Route path='/music' component={Music}/>
                     <Route path='/news' component={News}/>

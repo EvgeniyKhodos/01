@@ -51,7 +51,8 @@ let state = {
             {id: 3, message: 'Three message', likesCount: 11},
             {id: 4, message: 'Four', likesCount: 11},
             {id: 5, message: 'Five', likesCount: 11}
-        ]
+        ],
+        newPostText: 'it-kamasutra.com'
     },
     sidebar: [
         {id: 1, name: 'Dimych'},
@@ -60,14 +61,24 @@ let state = {
     ]
 };
 
-export let addPost = (PostMessage) => {
+export let addPost = () => {
     let newPost = {
         id: 5,
-        message: PostMessage,
+        message: state.profilePage.newPostText,
         likesCount: 0
     }
     state.profilePage.posts.push(newPost);
+    state.profilePage.newPostText='';
     rerenderEntireTree(state);
 };
+// Функция добавления постов, она же пушит содержимое в state и сразу перерисовывает
+
+export let updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
+    rerenderEntireTree(state);
+};
+// Функция для моментального обновления state при написании постов,
+// чтобы перерисовки происходила именно на его основе
+
 
 export default state;
