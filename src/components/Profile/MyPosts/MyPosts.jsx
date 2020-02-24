@@ -13,9 +13,8 @@ const MyPosts = (props) => {
     // создаем ссылку
 
     let addPost = () => {
-        debugger;
       let text = newPostElement.current.value;
-      props.addPost( text );
+      props.addPost( text )
     }
 
     return (
