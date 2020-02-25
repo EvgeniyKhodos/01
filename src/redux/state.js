@@ -1,6 +1,6 @@
-//import {rerenderEntireTree} from "../rerender";
-
-import {rerenderEntireTree} from "../render";
+let rerenderEntireTree = () => {
+    console.log('Hello')
+}
 
 let state = {
     dialogsPage: {
@@ -61,7 +61,7 @@ let state = {
     ]
 };
 
-export let addPost = () => {
+export const addPost = () => {
     let newPost = {
         id: 5,
         message: state.profilePage.newPostText,
@@ -73,12 +73,15 @@ export let addPost = () => {
 };
 // Функция добавления постов, она же пушит содержимое в state и сразу перерисовывает
 
-export let updateNewPostText = (newText) => {
+export const updateNewPostText = (newText) => {
     state.profilePage.newPostText = newText;
     rerenderEntireTree(state);
 };
 // Функция для моментального обновления state при написании постов,
 // чтобы перерисовки происходила именно на его основе
 
+export const subscribe = (observer) => {
+    rerenderEntireTree = observer; // паттерн наблюдатель observer
+}
 
 export default state;
