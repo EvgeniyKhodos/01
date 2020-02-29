@@ -16,7 +16,8 @@ const App = (props) => {
                 <Navbar/>
                 <div className='app-wrapper-content'>
                     <Route path='/dialogs'
-                           render={ () => <Dialogs state={props.state.dialogsPage} />}/>
+                           render={ () => <Dialogs
+                           store={props.store}/>}/>
                     {/*вызов анонимной функции, чтобы передать props*/}
                     <Route path='/profile'
                            render={ () => <Profile
