@@ -8,6 +8,7 @@ import {Route} from "react-router-dom";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 const App = (props) => {
     return (
@@ -16,13 +17,14 @@ const App = (props) => {
                 <Navbar/>
                 <div className='app-wrapper-content'>
                     <Route path='/dialogs'
-                           render={ () => <Dialogs
+                           render={ () => <DialogsContainer
                            store={props.store}/>}/>
                     {/*вызов анонимной функции, чтобы передать props*/}
                     <Route path='/profile'
                            render={ () => <Profile
-                               profilePage={props.state.profilePage}
-                               dispatch={props.dispatch}
+                               store ={props.store}
+                               // profilePage={props.state.profilePage}
+                               //dispatch={props.dispatch}
                                /> }/>
                            {/* Route - смотрит какую отображать страницу, без перезагрузки, следит за адресной строкой браузера*/}
                     <Route path='/music' component={Music}/>
