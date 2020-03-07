@@ -1,26 +1,25 @@
 import React from "react";
-import s from './Dialogs.module.css';
-import {NavLink} from "react-router-dom";
-import DialogItem from "./DialogItem/DialogItem";
-import Message from "./Message/Message";
-import Image from "./Image/Image";
-import {sendMessageCreator, updateNewMessageBodyCreator} from "../../redux/state";
+import Dialogs from "./Dialogs";
+import {sendMessageCreator, updateNewMessageBodyCreator} from "../../redux/dialogs-reducer";
+import {connect} from "react-redux";
 
-const DialogsContainer = (props) => {
-    let state = props.dialogsPage;
-
-    let onSendMessageClick = () => {
-        props.store.dispatch(sendMessageCreator());
+let mapStateToProps = (state) => {
+    return {
+        dialogsPage: state.dialogsPage
     }
-
-    let onNewMessageChange = (body) => {
-        props.store.dispatch(updateNewMessageBodyCreator(body));
-    }
-
-    return <Dialogs
-        updateNewMessageBody={onNewMessageChange}
-        sendMessage={onSendMessageClick}
-        dialogsPage={state}
-    />
 }
-export default DialogsContainer;
+
+let mapDispatchToProps = (dispatch) => {
+    return {
+        updateNewMessageBody: () => {
+            dispatch(sendMessageCreator());
+        },
+        sendMessage: (body) => {
+            dispatch(updateNewMessageBodyCreator(body));
+        }
+    }
+}
+
+let SuperDialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
+
+export default SuperDialogsContainer;
