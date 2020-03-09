@@ -27,6 +27,9 @@ const App = (props) => {
                                //dispatch={props.dispatch}
                                /> }/>
                            {/* Route - смотрит какую отображать страницу, без перезагрузки, следит за адресной строкой браузера*/}
+                    <Route path='/users'
+                           render={ () => <div> Users </div>}/>
+
                     <Route path='/music' component={Music}/>
                     <Route path='/news' component={News}/>
                     <Route path='/settings' component={Settings}/>
