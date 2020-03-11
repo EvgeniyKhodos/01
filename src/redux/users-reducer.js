@@ -3,14 +3,13 @@ const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
 
 let initialState = {
-    users: [],
-    newPostText: 'it-kamasutra.com'
-}  // эта переменная необходима для первого прохода REDUX
+    users: []
+};
 
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
-        case  FOLLOW: {
-            let stateCopy = {
+        case  FOLLOW:
+            return {
                 ...state,
                 users: state.users.map(u => {
                     if (u.id === action.userId) {
@@ -19,9 +18,8 @@ const usersReducer = (state = initialState, action) => {
                     return u;
                 })
             }
-        }
-        case UNFOLLOW: {
-            let stateCopy = {
+        case UNFOLLOW:
+            return  {
                 ...state,
                 users: state.users.map(u => {
                     if (u.id === action.userId) {
@@ -30,9 +28,10 @@ const usersReducer = (state = initialState, action) => {
                     return u;
                 })
             }
+        case SET_USERS: {
+            debugger;
+            return {...state, users: [...state.users, ...action.users]}
         }
-        case SET_USERS:
-            return { ...state, users: [ ...state.users, ...action.users]}
         default:
             return state;
     }

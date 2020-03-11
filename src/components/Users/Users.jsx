@@ -49,9 +49,11 @@ debugger;
                 <img src={u.photoUrl} className={styles.userPhoto}/>
                 </div>
                 <div>
-                    {u.followed ? <button onClick={() => {
-                        props.unfollow(u.id)
-                    }}>Unfollow</button> : <button onClick={() => {
+                    {u.followed
+                        ? <button onClick={() => {
+                               props.unfollow(u.id)
+                    }}>Unfollow</button>
+                        : <button onClick={() => {
                         props.follow(u.id)
                     }}>Follow</button>}
                 </div>

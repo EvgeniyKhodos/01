@@ -7,9 +7,10 @@ let mapStateToProps = (state) => {
     return {
         users: state.usersPage.users
     }
-}
+};
 
 let mapDispatchToProps = (dispatch) => {
+    // debugger;
     return {
         follow: (userId) => {
             dispatch(followAC(userId))
@@ -18,12 +19,12 @@ let mapDispatchToProps = (dispatch) => {
             dispatch(unfollowAC(userId))
         },
         setUsers: (users) => {
-            dispatch(setUsersAC(users))
+            dispatch(setUsersAC(users));
         }
     }
-}
+};
 
-export default connect(mapStateToProps,mapDispatchToProps)(Users);
+export default connect(mapStateToProps, mapDispatchToProps)(Users);
 
 
 

@@ -17,15 +17,10 @@ const App = (props) => {
                 <Navbar/>
                 <div className='app-wrapper-content'>
                     <Route path='/dialogs'
-                           render={ () => <DialogsContainer
-                           store={props.store}/>}/>
+                           render={ () => <DialogsContainer /> }/>
                     {/*вызов анонимной функции, чтобы передать props*/}
                     <Route path='/profile'
-                           render={ () => <Profile
-                               store ={props.store}
-                               // profilePage={props.state.profilePage}
-                               //dispatch={props.dispatch}
-                               /> }/>
+                           render={ () => <Profile/> }/>
                            {/* Route - смотрит какую отображать страницу, без перезагрузки, следит за адресной строкой браузера*/}
                     <Route path='/users'
                            render={ () => <UsersContainer />}/>
