@@ -19,7 +19,7 @@ const App = (props) => {
                     <Route path='/dialogs'
                            render={ () => <DialogsContainer /> }/>
                     {/*вызов анонимной функции, чтобы передать props*/}
-                    <Route path='/profile'
+                    <Route path='/profile/:userId?'
                            render={ () => <ProfileContainer/> }/>
                            {/* Route - смотрит какую отображать страницу, без перезагрузки, следит за адресной строкой браузера*/}
                     <Route path='/users'
