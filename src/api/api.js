@@ -12,19 +12,20 @@ const instance = axios.create({
 
 export const usersAPI = {
     getUsers(currentPage = 1, pageSize = 10) {
-        return instance.get('users?page=${currentPage}&count=${pageSize}').then(response => {
+        return instance.get(`users?page=${currentPage}&count=${pageSize}`).then(response => {
             return response.data;
         });
     },
     deleteUsers(deleteUser = 1) {
-        return instance.delete('follow/${delete.User}').then(response => {
+        return instance.delete(`follow/${deleteUser}`).then(response => {
             return response.data;
         });
     }
 }
 
-export const getUsers2 = (currentPage = 1, pageSize = 10) => {
-    return instance.get(baseURL + 'follow?page=${currentPage}&count=${pageSize}').then(response => {
+export const getUsers2 = (currentPage, pageSize) => {
+    debugger;
+    return instance.get(`https://social-network.samuraijs.com/api/1.0/follow?page=${currentPage}&count=${pageSize}`).then(response => {
         return response.data;
     });
 }

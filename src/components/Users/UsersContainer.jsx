@@ -17,10 +17,8 @@ import {getUsers2, usersAPI} from "../../api/api";
 class UsersContainer extends React.Component {
     componentDidMount() {
         this.props.toggleIsFetching(true);
-
         usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
             .then(data => {
-                debugger;
             this.props.toggleIsFetching(false);
             this.props.setUsers(data.items);
             this.props.setTotalUsersCount(data.totalCount);
@@ -30,7 +28,6 @@ class UsersContainer extends React.Component {
     onPageChanged = (pageNumber) => {
         this.props.setCurrentPage(pageNumber);
         this.props.toggleIsFetching(true);
-        debugger;
         getUsers2(pageNumber, this.props.pageSize)
             .then(data => {
                 this.props.toggleIsFetching(false);
@@ -44,7 +41,7 @@ class UsersContainer extends React.Component {
                 <Preloader/> : null}
             <Users totalUsersCount={this.props.totalUsersCount}
                    pageSize={this.props.pageSize}
-                   currentPage={this.props.currentSize}
+                   currentPage={this.props.currentPage}
                    onPageChanged={this.onPageChanged}
                    users={this.props.users}
                    follow={this.props.follow}
