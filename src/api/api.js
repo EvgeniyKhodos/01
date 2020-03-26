@@ -14,23 +14,25 @@ export const usersAPI = {
     getUsers(currentPage = 1, pageSize = 10) {
         return instance.get(`users?page=${currentPage}&count=${pageSize}`)
             .then(response => {
-                debugger;
                 return response.data;
             });
     },
-    deleteUsers(deleteUser = 1) {
-        return instance.delete(`follow/${deleteUser}`).then(response => {
-            return response.data;
-        });
+
+    follow(userId) {
+        debugger;
+        return instance.post(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`)
+    },
+
+    unfollow(userId) {
+        debugger;
+        return instance.delete(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`)
     }
 }
 
 export const getUsers2 = (currentPage, pageSize) => {
-    debugger;
     // `https://social-network.samuraijs.com/api/1.0/follow?page=${currentPage}&count=${pageSize}`
     return instance.get(`users?page=${currentPage}&count=${pageSize}`)
         .then(response => {
-            debugger;
             return response.data;
         });
 }
