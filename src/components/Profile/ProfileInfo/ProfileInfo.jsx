@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './ProfileInfo.module.css';
 import Preloader from "../../common/Preloader/Preloader";
-
+import ProfileStatus from "./ProfileStatus"
 
 const ProfileInfo = (props) => {
     if (!props.profile) {
@@ -10,12 +10,15 @@ const ProfileInfo = (props) => {
 
     return (
         <div>
-            <div>
+{/*            <div>
                 <img
                     src='https://www.catsmob.com/post/2012/06/01089/creative_facebook_timeline_covers_104.jpg' />
-            </div>
+            </div>*/}
             <div className={s.descriptionBlock}>
                 <img src={props.profile.photos.large}/>
+
+                <ProfileStatus status={"First status"}/>
+
                 <p>Имя: {props.profile.fullName}</p>
                 <p>О себе: {props.profile.aboutMe}</p>
                 <p>
