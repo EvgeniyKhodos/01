@@ -8,7 +8,8 @@ const Header = (props) => {
             src='https://awionline.org/sites/default/files/uploads/images/18-AWI-Logo-Hexagons-Green-Border_300x300.png'></img>
 
         <div className={s.loginBlock}>
-            { props.isAuth ? props.login
+            { props.isAuth
+                ? <div>{props.login} - <button onClick={props.logout}>Log out</button></div>
                 : <NavLink to={'/login'}>Login</NavLink>}
         </div>
 
